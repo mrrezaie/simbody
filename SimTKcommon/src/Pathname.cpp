@@ -198,7 +198,8 @@ void Pathname::deconstructPathname( const string&   pathname,
     if (processed.substr(0, 1) == "/") {
         dontApplySearchPath = true;
         processed.erase(0, 1);
-        if (drive.empty()) drive = getCurrentDriveLetter();
+        // if (drive.empty()) drive = getCurrentDriveLetter();
+        if (drive.empty()) drive = getThisExecutableDirectory()[0];
     }
     else if (processed.substr(0, 2) == "./") {
         dontApplySearchPath = true;
